@@ -1,6 +1,8 @@
 # codenames.plus
 nodejs server for multiplayer codenames webapp game
 
+UPDATE (08/17/2020): CGE (original boardgame creators) reached out to me and had me remove my version of the game from https://codenames.plus around a month ago. At this time I don't plan on revisiting this project.
+
 UPDATE (04/07/2020): Wow I did not expect this app to get this much traction, especially since I put this up around two years ago and kind of let it do its thing. With the recent popularity, I've been seeing around 500 concurrent players on weeknights and upwards of 3k on weekend nights. Because of that, the servers are struggling  bit on weekends and you may experience timeouts / freezing. I wasn't able to optimize the app with that kind of load in mind 2 years ago. I'm really sorry about these issues. 
 
 On top of this, I didn't expect anyone to contribute / ask to work on the app here on github. If the repo isn't set up properly / optimized, I'm sorry about that. Again, didn't expect this spotlight. 

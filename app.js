@@ -2,38 +2,27 @@
 ////////////////////////////////////////////////////////////////////////////
 
 // Express
-let express = require('express')
+const express = require('express')
+const app = express()
+const server = require('http').createServer(app)
+const io = require('socket.io')(server)
+server.listen(3000);
 
-// Create app
-let app = express()
-
-//Set up server
-let server = app.listen(process.env.PORT || 2000, listen);
-
-// Callback function confirming server start
-function listen(){
-  let host = server.address().address;
-  let port = server.address().port;
-  console.log('Codenames Server Started at http://' + host + ':' + port);
-}
 
 // Force SSL
-app.use((req, res, next) => {
-  if (req.header('x-forwarded-proto') !== 'https') {
-    res.redirect(`https://${req.header('host')}${req.url}`)
-  } else {
-    next();
-  }
-});
+// app.use((req, res, next) => {
+//   if (req.header('x-forwarded-proto') !== 'https') {
+//     res.redirect(`https://${req.header('host')}${req.url}`)
+//   } else {
+//     next()
+//   }
+// })
 
 // Files for client
 app.use(express.static('public'))
 
-// Websocket
-let io = require('socket.io')(server)
-
 // Catch wildcard socket events
-var middleware = require('socketio-wildcard')()
+const middleware = require('socketio-wildcard')()
 io.use(middleware)
 
 // Make API requests

@@ -11,7 +11,7 @@
     "socketio-wildcard": "^2.0.0"
   },
   "engines": {
-    "node": "10.16.3"
+    "node": "12.18.3"
   },
   "devDependencies": {},
   "scripts": {

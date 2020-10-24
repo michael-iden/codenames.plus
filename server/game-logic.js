@@ -1,48 +1,11 @@
-
-////////////////////////////////////////////////////////////////////////////
-
-// Express
-const express = require('express')
-const app = express()
-const server = require('http').createServer(app)
-const io = require('socket.io')(server)
-server.listen(3000);
-
-
-// Force SSL
-// app.use((req, res, next) => {
-//   if (req.header('x-forwarded-proto') !== 'https') {
-//     res.redirect(`https://${req.header('host')}${req.url}`)
-//   } else {
-//     next()
-//   }
-// })
-
-// Files for client
-app.use(express.static('public'))
-
 // Catch wildcard socket events
 const middleware = require('socketio-wildcard')()
 io.use(middleware)
 
-// Make API requests
-const Heroku = require('heroku-client')
-const heroku = new Heroku({ token:process.env.API_TOKEN})// DELETE requests
-
-// Daily Server Restart time
-// UTC 13:00:00 = 9AM EST
-let restartHour = 11//13 original
-let restartMinute = 0//0
-let restartSecond = 5
-// restart warning time
-let restartWarningHour = 10//12 original
-let restartWarningMinute = 50//50
-let restartWarningSecond = 2
-
 ////////////////////////////////////////////////////////////////////////////
 
 // Codenames Game
-const Game = require('./server/game.js')
+const Game = require('./game.js')
 
 // Objects to keep track of sockets, rooms and players
 let SOCKET_LIST = {}

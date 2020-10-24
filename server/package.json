@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "dependencies": {
     "express": "^4.17.1",
     "fs": "0.0.1-security",
@@ -13,10 +14,12 @@
   "engines": {
     "node": "12.19.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon --experimental-modules src/app.js"
   },
   "author": "Joe Marchesi & Mike Iden",
   "license": "ISC"

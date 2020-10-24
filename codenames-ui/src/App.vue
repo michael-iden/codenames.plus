@@ -1,15 +1,21 @@
 <template>
 <div>
-    <GameGrid :words="words" />
+    <Lobby v-if="words.length == 0" />
+    <GameGrid 
+        v-else 
+        :words="words" 
+    />
 </div>
 </template>
 
 <script>
 import GameGrid from './components/gameboard/GameGrid'
+import Lobby from './components/Lobby'
 
 export default {
     name: 'App',
     components: {
+        Lobby,
         GameGrid
     },
     data() {
@@ -24,9 +30,9 @@ export default {
         connect: function () {
             console.log('socket connected')
         },
-        game: function (data) {
-            this.words = data.words.slice(0, 25);
-        }
+        // game: function (data) {
+        //     this.words = data.words.slice(0, 25);
+        // }
     },
 }
 </script>
